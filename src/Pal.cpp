@@ -1,45 +1,51 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-// Given a string s, return the longest 
+// Given a string s, return the longest
 // palindromic substring in s.
+bool isPalindrome(const string &s, int i, int j)
+{
 
-    bool isPalindrome(string s) {
-        int i = 0;
-        int j = s.length()-1;
-
-        while (i<j) {
-            if (s.substr(i, 1) != s.substr(j, 1)) {
-                return false;
-            }
-            i++;
-            j--;
+    while (i < j)
+    {
+        if (s[i] != s[j])
+        {
+            return false;
         }
-        return true;
+        i++;
+        j--;
+    }
+    return true;
+}
+
+string longestPalindrome(string s)
+{
+    if (s == "" || s.length() < 2)
+    {
+        return s;
     }
 
-string longestPalindrome(string s) {
+    string longest = s.substr(0, 1);
 
-        if (s == "" || s.length() < 2) {
-            return s;
-        }
+    for (int i = 1; i <= s.length(); i++)
+    {
+        for (int j = 0; j <= s.length() - i; j++)
+        {
 
-        string longest = s.substr(0,1);
-
-        for (int i = 1; i<= s.length(); i++) {
-            for (int j = 0; j<= s.length()-i; j++) {
-                string substr = s.substr(j, i);
-                
-                if (substr.length() > longest.length() && isPalindrome(substr)) {
-                    longest = substr;
-                }
+            if (i > longest.length() && isPalindrome(s, j, j + i - 1))
+            {
+                longest = s.substr(j, i);
             }
         }
-    return longest;  
     }
+    return longest;
+}
 
-int main() {
+int main()
+{
 
-    string longs = longestPalindrome("nmbghghrtrtxuaqqbkb");
-    return 0; //ghg
+    string longs = longestPalindrome("whfuyujujqc");
+    cout << longs << "\n";
+    return 0; // uyu
 }
