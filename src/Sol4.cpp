@@ -32,7 +32,7 @@ public:
 
 //Or, Same solution but using a Hash Table
 
-class Solution {
+class SolutionB {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         unordered_map<int, int> map; // create a hash map to store complements and their indices
