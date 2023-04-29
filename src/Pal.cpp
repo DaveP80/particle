@@ -7,7 +7,7 @@ using namespace std;
 bool isPalindrome(const string &s, int i, int j)
 {
 
-    while (i < j)
+    while (i < j && (j-i >= 2))
     {
         if (s[i] != s[j])
         {
