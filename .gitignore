@@ -1,3 +1,6 @@
 SDL2*
 build*
 src/ClPrac.cpp
+.idea
+particle.iml
+out
