@@ -5,13 +5,8 @@ public class StringSplit {
     // character of the final pair with an underscore ('_').
     public static String[] solution(String s) {
         int count = 0;
-        int arrlength = 0;
-        boolean flag = s.length() % 2 == 1;
-        if (flag) arrlength = ((int) s.length()/2) + 1;
-
-        else arrlength = s.length()/2;
-
-        String[] sol = new String[arrlength];
+        if (s.length() % 2 == 1) s += "_";
+        String[] sol = new String[s.length()/2];
         for (int i = 0; i<s.length(); i++) {
 
             if (i%2 == 1) {
@@ -20,21 +15,13 @@ public class StringSplit {
             }
         }
 
-        if (flag) sol[count] = s.substring(s.length()-1) + "_";
         return sol;
     }
 
     public static void main(String[] args) {
         String[] response = solution("fatkingsongreen");
 
-        for (String r : response) System.out.println(r);
-        //fa
-        //tk
-        //in
-        //gs
-        //on
-        //gr
-        //ee
-        //n_
+        for (String r : response) System.out.print(r + " ");
+        //fa tk in gs on gr ee n_
     }
 }
