@@ -7,7 +7,6 @@ class ListNode(object):
 class Solution(object):
     def swapPairs(self, head):
         arr = []
-        count = 0
         while True:
             if head is not None:
                 arr.append(head.val)
@@ -20,9 +19,14 @@ class Solution(object):
                 temp2 = arr[i]
                 arr[i-1] = temp2
                 arr[i] = temp
-        res = ListNode()
-        for x,y in enumerate(arr):
-            if x == len(arr)-1:
-                res.next = None;
-                res.val = x
-                return res
+        if not arr:
+            return head
+        head = ListNode(arr[0])  # Create the head node with the first element of arr
+        current = head  # Set current as the head node
+        # Iterate over the remaining elements of arr and create the linked list
+        for i in range(1, len(arr)):
+            current.next = ListNode(arr[i])
+            current = current.next
+        return head
+
+        
