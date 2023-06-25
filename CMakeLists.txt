@@ -4,6 +4,6 @@ project(CMakeTutorial
     DESCRIPTION "Particle"
     LANGUAGES CXX)
 
-file(GLOB MAIN "src/Sol9.cpp")
+file(GLOB MAIN "src/CW1.cpp")
 
 add_executable(executable ${MAIN})
